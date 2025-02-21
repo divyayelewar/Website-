@@ -1,0 +1,18 @@
+.wallpaper-container   {
+    width: 100%;
+    min-height: 60vh;
+    background:linear-gradient(rgba(8, 0, 58, 0.393), rgba(8, 0, 58, 0.146)), url('../../assets/back.jpg');
+    background-size: cover;
+    
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+   
+   
+  }
+  .img img{
+    width:500px ;
+    height: 340px;
+  }
+

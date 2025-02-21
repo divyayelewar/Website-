@@ -1,0 +1,127 @@
+.footer_section{
+  width: 100%;
+  height: auto;
+  position: relative;
+  background-color: #103741;
+  padding: 30px;
+}
+
+.footer_section .footer_grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 10px;
+  position: relative;
+}
+
+.footer_section .footer_grid .grid_box{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.footer_grid .grid_box h2{
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.footer_grid .grid_box p{
+  color: #879e99;
+  font-size: 16px;
+  padding: 4px 0px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer_grid .grid_box .social_media{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.footer_grid .grid_box .social_media a{
+  border: 1px solid rgba(255,255,255,0.090);
+  padding: 10px 10px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  
+}
+
+.footer_grid .grid_box  a{
+  color: #879e99;
+  font-size: 16px;
+  padding: 4px 0px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.footer_grid .grid_box  a .icon{
+   margin-right: 7px;
+   font-size: 18px;
+}
+
+.footer_grid .grid_box .search{
+  margin-top: 15px;
+  border: 1px solid rgba(255,255,255,0.090);
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: 4px;
+  height: 45px;
+
+}
+
+.footer_grid .grid_box .search input{
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  padding-left: 15px;
+}
+
+.footer_grid .grid_box .search .signup_btn{
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  background-color: #1043fa;
+  padding: 5px 8px;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.footer_section .bottom_footer{
+  width: 100%;
+  border-top: 1px solid rgba(255,255,255,0.090);
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+}
+
+.footer_section .bottom_footer .left_sect{
+  color: #879e99;
+}
+
+.footer_section .bottom_footer  .right_sect{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer_section .bottom_footer  .right_sect .line{
+background-color: rgba(255,255,255,0.090);
+height: 20px;
+width: 1px;
+}
+
+.footer_section .bottom_footer  .right_sect a{
+  color: #879e99;
+  text-decoration: none;
+}

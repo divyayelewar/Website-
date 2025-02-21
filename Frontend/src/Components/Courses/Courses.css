@@ -1,0 +1,358 @@
+/* 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Open+Sans:wght@300;400;600&display=swap');
+
+.courses-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 6px 20px;
+  background-color: #f4f4f4;
+}
+
+.image-container {
+  flex: 1 1 300px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container img {
+  max-width: 60%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.image-container:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.course-info {
+  flex: 1 1 300px;
+   
+  padding: 10px;
+  border-radius: 15px;
+  
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+  margin-right: 200px;
+}
+.course-info.left{
+  width: 600px;
+}
+
+.course-info h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #007acc;
+  transition: color 0.3s ease;
+}
+
+
+.course-info:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.course-info p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #0d0a0a;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+  
+}
+
+.course-info strong {
+  color: #007acc;
+}
+
+.course-info.left,
+.course-info.right {
+  text-align: left;
+}
+
+.course-info .button {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 10px 25px;
+  background-color: #007acc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+
+.course-info .button:hover {
+  background-color: #005b99;
+}
+.heding{
+display: flex;
+  align-items: center;
+  justify-content: center; 
+ 
+}
+
+.heding h1 {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 20px;
+}
+.heding img{
+ 
+  
+  width: 150px;
+  mix-blend-mode: darken;
+}
+
+@media (max-width: 768px) {
+  .courses-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .course-info {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .image-container {
+    margin-top: 20px;
+  }
+
+  .course-info h2 {
+    font-size: 22px;
+  }
+
+  .course-info p {
+    font-size: 19px;
+  }
+}  */
+/* --------------------------------- */
+/* General Styling for the Course Item */
+/* .courses-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; 
+  padding: 20px;
+} */
+ 
+.courses-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 6px 20px;
+  background-color: #f4f4f4;
+}
+.image-container {
+  flex: 1 1 300px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container img {
+  max-width: 60%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.course-info {
+  flex: 1 1 300px;
+   
+  padding: 10px;
+  border-radius: 15px;
+  
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+  margin-right: 200px;
+}
+.course-info.left{
+  width: 600px;
+}
+
+.course-info h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #00a3cc;
+  transition: color 0.3s ease;
+}
+
+
+.course-info {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.course-info p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #0d0a0a;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+  
+}
+
+.course-info strong {
+  color: #007acc;
+}
+
+
+
+
+
+
+.course-info.left,
+.course-info.right {
+  text-align: left;
+}
+
+.course-info .button {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 10px 25px;
+  background-color: #007acc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+
+.course-info .button:hover {
+  background-color: #005b99;
+}
+
+.heading{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.heading h1{
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.heading img{
+  width: 150px;
+  mix-blend-mode: darken;
+}
+
+/* Heading Section */
+.heading {
+  position: relative;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+.heading h1 {
+  font-size: 3rem;
+  color: rgb(15, 13, 13);
+  font-weight: bold;
+  z-index: 1;
+}
+
+/* Individual Course Section */
+.course-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.course-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* Image Section */
+.image-container {
+  width: 45%; 
+  height: 100%;
+  flex-shrink: 0; }
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover; }
+
+
+.course-info {
+  width: 50%; 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.course-info h2 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.course-info p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.course-info strong {
+  color: #333;
+}
+.course-info h2{
+  color: #c66414;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .course-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .image-container,
+  .course-info {
+    width: 100%;
+  }
+
+  .image-container {
+    margin-bottom: 20px;
+  }
+}

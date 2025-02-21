@@ -1,0 +1,58 @@
+ .main_message h1{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+.main_msg {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  position: relative;
+}
+
+.main_msg .left {
+  width: 40%;
+  height: 500px;
+  box-sizing: border-box;
+  color: white;
+  font-size: 18px;
+  position: relative;
+}
+
+.left img{
+  width: 500px;
+  height: 400px;
+  position: absolute;
+  object-fit: cover;
+  padding-left: 20px;
+  
+  margin: 70px 80px;
+  
+}
+
+.main_msg .right{
+width: 60%;
+height: 500px;
+background-color: #10051f;
+margin-right: 40px;
+
+
+}
+
+
+.right p{
+padding-right: 20px;
+color: white;
+line-height: 1.8;
+
+font-size: 1rem;
+margin-top: 40px;
+padding-left: 60px;
+margin-left: 20px;
+width: 700px;
+
+} 
+

@@ -1,0 +1,35 @@
+.wall_paper{
+    width: 100%;
+    min-height: 70vh;
+    background:linear-gradient(rgba(8, 0, 58, 0.653), rgba(8, 0, 58, 0.598)), url('../../assets/pdf2.jpg');
+    background-size: cover;
+    
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.pdf a{
+    gap: 50px;
+    border-radius: 2px solid black;
+}
+
+.b_t{
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 20px;
+}
+button{
+    border-radius: 10px;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 255, 0.653);
+    color: aliceblue;
+    border: none;
+    outline: none;
+    margin-bottom: 30px;
+}

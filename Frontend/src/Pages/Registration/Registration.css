@@ -1,0 +1,115 @@
+   .register_container{
+    width: 100%;
+    min-height: 60vh;
+    background:linear-gradient(rgba(8, 0, 58, 0.393), rgba(8, 0, 58, 0.146)), url('../../assets/back.jpg');
+    background-size: cover;
+    
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+   }
+   .form_section {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 40px;
+  }
+  .button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 312px;
+
+    
+       /* width: 300px;
+    top: 313px; */
+} 
+
+  .form_section h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form_section form {
+    width: 60%;
+    height: auto;
+    padding: 20px;
+    background-color: rgba(231, 214, 214, 0.959);
+    position: relative;
+    border: 2px solid #333; /* Add a border to the form */
+    border-radius: 10px; /* Optional: rounded corners for the border */
+  }
+  
+  .form_section form .form_group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    position: relative;
+  }
+  
+  .form_group .input_box {
+    width: 100%;
+    margin: 20px 10px;
+    position: relative;
+  }
+  
+  .form_group .input_box input {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    padding: 15px;
+    outline: none;
+    border: 1px solid black;
+  }
+  
+  .form_group .input_box select {
+    width: 100%;
+    height: 40px;
+    outline: none;
+    padding-left: 15px;
+    border: 1px solid black;
+  }
+  
+  .form_section h2 {
+    color: #2f2e2e;
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+  }
+  
+  .form_group .input_box .name {
+    display: flex;
+    justify-content: left;
+  }
+  
+  .input_box textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    border-radius: 3px;
+    outline: none;
+    margin-bottom: 20px;
+    border: 1px solid black;
+  }
+  
+   .btton {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .btton button {
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: orangered;
+  }
+   

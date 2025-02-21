@@ -1,0 +1,139 @@
+.banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 40px;
+  }
+  
+  .banner_box{
+    width: 450px;
+    height: 450px;
+    background-color: rgb(246, 246, 246);
+    /* display: flex; */
+    align-items: center;
+    gap: 50px;
+    border-radius: 15px;
+    margin-top: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  
+  
+  }
+  
+  .banner_box:hover {
+    transform: translateY(-5px); 
+  }
+  
+  .banner_box img{
+    width: 350px;
+    height: 300px;
+    object-position: center;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 20px;
+    align-items: center;
+    
+  }
+  
+  .info{
+    /* display: flex; */
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  
+  .name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333; 
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+  }
+  
+  .education {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    font-size: 16px;
+    color: #555; 
+    gap: 20px;
+    font-size: 1.2rem;
+  } 
+  
+  
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .banner_box {
+        width: 300px; 
+        padding: 15px;
+    }
+  
+    .banner_box img {
+        width: 100px; 
+        height: 100px;
+    }
+  
+    .name {
+        font-size: 16px;
+    }
+  
+    .education {
+        font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .banner {
+        flex-direction: column; 
+        gap: 15px;
+    }
+  
+    .banner_box {
+        width: 90%; 
+        padding: 15px;
+    }
+  
+    .banner_box img {
+        width: 80px; 
+        height: 80px;
+    }
+  
+    .name {
+        font-size: 14px;
+    }
+  
+    .education {
+        font-size: 13px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .banner_box {
+        width: 100%; 
+        padding: 10px;
+        flex-direction: column; /* converts horizontal row to vertical (image and content in the banner_box only*/
+        align-items: center; 
+        gap: 10px; 
+        }
+  
+    .banner_box img {
+        width: 70px; 
+        height: 70px;
+    }
+  
+    .info {
+        text-align: center; 
+    }
+  
+    .name {
+        font-size: 12px;
+    }
+  
+    .education {
+        font-size: 12px;
+    }
+  }

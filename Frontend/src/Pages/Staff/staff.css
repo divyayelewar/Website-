@@ -1,0 +1,532 @@
+/* 
+.main_staff   {
+    width: 100%;
+    min-height: 60vh;
+    background:linear-gradient(rgba(8, 0, 58, 0.393), rgba(8, 0, 58, 0.146)), url('../../assets/course.jpg');
+    background-size: cover;
+    
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+   
+   
+  }
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    top: 313px;
+}
+
+ 
+
+
+
+.main_box {
+    display: flex;
+    
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px; 
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .box {
+    width: 290px; 
+    height: 350px;
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: #fff; 
+    overflow: hidden; 
+    transition: transform 0.3s ease-in-out; 
+  }
+  
+  .box:hover {
+    transform: scale(1.05); 
+  }
+  
+  .box_img {
+    width: 100%;
+    height: 200px; 
+    overflow: hidden;
+  }
+  
+  .box_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+  }
+  
+  .info_box {
+    padding: 20px;
+  }
+  
+  .information {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  
+  .n_ame {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  
+  .staff_name {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .stf_education{
+    font-size: 13px;
+
+  }
+  .stf_Role{
+    font-size: 13px;
+
+  }
+  .stf_expr{
+    font-size: 13px;
+
+  }
+  .stf_email{
+    font-size: 13px;
+
+  }
+  .stf_mob_no {
+    font-size: 13px;
+  }
+
+
+  .buttonnn{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin-top: 20px;
+    
+  }
+
+  .e{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  button{
+    width: 130px;
+    height: 35px;
+    
+    border-radius: 15px;
+  }
+  
+  @media (max-width: 768px) {
+    .main_box {
+      flex-direction: column; 
+      align-items: center;
+    }
+  
+    .box {
+      width: 100%; 
+      max-width: 400px; 
+    }
+  }
+  
+
+
+
+
+
+.main_non {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; 
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+  
+  
+  .boxes {
+    width: 280px; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: #fff; 
+    transition: transform 0.3s ease-in-out; 
+  }
+  
+  
+  .boxes:hover {
+    transform: scale(1.05); 
+  }
+  
+  
+  .box_imgg {
+   
+    width: 100%;
+    height: 200px;
+  }
+  
+  
+  .box_imgg img {
+    width: 100%;
+    height: 100%;
+   
+    object-fit: cover; 
+  }
+  
+ 
+  .information_box {
+    padding: 20px;
+  }
+  
+  
+  .informa_tion {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  
+  
+  .n_am {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  
+  .staff_nam,
+  .stf_workk {
+    color: #555;
+    font-size: 14px;
+  }
+  
+  
+  .staff_nam {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  
+  .stf_workk {
+    font-size: 13px;
+  }
+  
+  
+
+  @media (max-width: 768px) {
+    .main_non {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+        gap: 20px;
+    }
+
+    .boxes {
+        width: 100%; 
+        margin: 0 auto;
+    }
+
+    .box_imgg {
+        height: 180px; 
+    }
+
+    .information_box {
+        padding: 15px;
+    }
+
+    .n_am {
+        font-size: 18px; 
+    }
+
+    .staff_nam {
+        font-size: 15px;
+    }
+
+    .stf_workk {
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .main_non {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+        gap: 15px;
+    }
+
+    .boxes {
+        width: 100%; 
+        margin: 0 auto;
+    }
+
+    .box_imgg {
+        height: 150px; 
+    }
+
+    .information_box {
+        padding: 10px;
+    }
+
+    .n_am {
+        font-size: 16px; 
+    }
+
+    .staff_nam {
+        font-size: 14px;
+    }
+
+    .stf_workk {
+        font-size: 11px;
+    }
+} */
+/* ----------------------------------------- */
+/* Main Staff Section */
+.main_staff {
+  width: 100%;
+  min-height: 60vh;
+  background: linear-gradient(rgba(8, 0, 58, 0.393), rgba(8, 0, 58, 0.146)), url('../../assets/course.jpg');
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  top: 313px;
+}
+
+.main_box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.box {
+  width: 290px;
+  height: 350px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.box:hover {
+  transform: scale(1.05);
+}
+
+.box_img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.box_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info_box {
+  padding: 20px;
+}
+
+.information {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.n_ame {
+  font-weight: bold;
+  color: #333;
+}
+
+.staff_name {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.stf_education,
+.stf_Role,
+.stf_expr,
+.stf_email,
+.stf_mob_no {
+  font-size: 13px;
+}
+
+.buttonnn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.e {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  width: 130px;
+  height: 35px;
+  border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+  .main_box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .box {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* Non-Teaching Staff Section */
+.main_non {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.boxes {
+  width: 280px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.3s ease-in-out;
+}
+
+.boxes:hover {
+  transform: scale(1.05);
+}
+
+.box_imgg {
+  width: 100%;
+  height: 200px;
+}
+
+.box_imgg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.information_box {
+  padding: 20px;
+}
+
+.informa_tion {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.n_am {
+  font-weight: bold;
+  color: #333;
+}
+
+.staff_nam,
+.stf_workk {
+  color: #555;
+  font-size: 14px;
+}
+
+.staff_nam {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.stf_workk {
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .main_non {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .boxes {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .box_imgg {
+    height: 180px;
+  }
+
+  .information_box {
+    padding: 15px;
+  }
+
+  .n_am {
+    font-size: 18px;
+  }
+
+  .staff_nam {
+    font-size: 15px;
+  }
+
+  .stf_workk {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main_non {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .boxes {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .box_imgg {
+    height: 150px;
+  }
+
+  .information_box {
+    padding: 10px;
+  }
+
+  .n_am {
+    font-size: 16px;
+  }
+
+  .staff_nam {
+    font-size: 14px;
+  }
+
+  .stf_workk {
+    font-size: 11px;
+  }
+}

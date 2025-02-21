@@ -1,0 +1,92 @@
+ .wallpaper  {
+  width: 100%;
+  min-height: 60vh;
+  background:linear-gradient(rgba(8, 0, 58, 0.393), rgba(8, 0, 58, 0.146)), url('../../assets/back.jpg');
+  background-size: cover;
+  
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+ 
+ 
+}
+
+
+
+
+.main_cont {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.heading h1 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.class-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.class-item {
+  width: calc(33.333% - 20px); 
+  background-color: #f4f4f4;
+  height: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  display: block;
+}
+
+.class-item:hover {
+  transform: translateY(-10px); 
+}
+
+.class-image img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+}
+
+.info {
+  padding: 15px;
+}
+
+.class-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  
+}
+
+ .text-data {
+  font-size: 16px;
+  color: #333;
+  margin-top: 20px;
+}
+
+.icons{
+  display: flex;
+  margin-top: 40px;
+  gap: 40px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .course-item {
+    width: calc(50% - 20px); 
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .course-item {
+    width: 100%; 
+  }
+} 

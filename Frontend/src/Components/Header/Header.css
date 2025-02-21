@@ -1,0 +1,398 @@
+     nav{
+    width: 100%;
+    color: #fff;
+     padding: 4px 0;
+     position: fixed;
+      top: 0;
+     left: 0;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     z-index: 10;
+}
+.name {
+    display: flex;
+    align-items: center; 
+    
+  }
+  .logo {
+    width: 50px; 
+    height: auto;
+  }
+  .text{
+    color: #f1e3e3;
+    margin-left: 10px; 
+   }
+  
+  .college {
+    font-size: 20px; 
+    font-weight: bold;
+    margin: 0;
+   
+  }
+  
+  .location {
+    font-size: 14px; 
+   
+    margin: 0;
+    top: 2px;
+  }
+  
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 5px 20px;
+    font-size: 23px;
+    
+}
+
+.dark-nav{
+  background: #bfd4e9e9;
+  /* height: 80px;
+  width: 90%; */
+  /* margin: 0 50px 0 40px;   */
+  transition: padding 0.2s ease;  
+    
+} 
+.dark-nav a{
+  color: black;
+}
+
+.menu-icon{
+    display: none;
+
+
+}
+.About_box{
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  background-color: rgb(231, 228, 229);
+  width: 200px;
+  height: auto;
+  border-radius: 4px;
+  padding: 25px;
+  transition: 0.5s ease;
+}
+ul li:hover .About_box{
+  opacity: 3;
+  visibility: visible;
+  top: 65px;
+}
+
+li .About_box a{
+  display: flex;
+  align-items: center;
+  font-size: 19px;
+  color: black;
+}
+
+.About_box :hover{
+  color: #E85C0D;
+}
+
+
+
+a:hover{
+  color: #E85C0D;
+}
+
+
+.Event_box{
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  background-color: rgb(231, 228, 229);
+  width: 200px;
+  height: auto;
+  border-radius: 4px;
+  padding: 25px;
+  transition: 0.5s ease;
+  
+}
+
+ul li:hover .Event_box{
+  opacity: 3;
+  visibility: visible;
+  top: 65px;
+}
+
+li .Event_box a{
+  display: flex;
+  align-items: center;
+  font-size: 19px;
+  color: black;
+}
+
+
+.Event_box :hover{
+  color: #E85C0D;
+}
+
+
+.Staff_box{
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  background-color: rgb(231, 228, 229);
+  width: 200px;
+  height: auto;
+  border-radius: 4px;
+  padding: 15px;
+  transition: 0.5s ease;
+  
+}
+ul li:hover .Staff_box{
+  opacity: 3;
+  visibility: visible;
+  top: 65px;
+}
+
+li .Staff_box a{
+  display: flex;
+  align-items: center;
+  font-size: 19px;
+  color: black;
+}
+
+.Staff_box :hover{
+  color: #E85C0D;
+}
+
+li a{
+  color: #fff;
+  font-size: 19px;
+  text-decoration: none;
+  transition: 0.5s linear;
+  padding: 10px 0px;
+  
+}
+nav ul li a {
+  color:#f7e3e3;
+  font-size: 19px;
+  text-decoration: none;
+  position: relative;
+  padding: 10px 0;
+}
+
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 3px; 
+  background-color: #d0a41f;  
+  transition: width 0.3s ease;  
+ 
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+
+  
+  
+
+}
+
+.nav_con a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.cont_act a{
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.nav .profile {
+  display: flex;
+  align-items: center;
+  position: relative;
+  column-gap: 10px;
+
+}
+
+
+ .profile .image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+}
+.profile .image img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+}
+.details {
+  display: flex;
+  align-items: center;
+  line-height: 10px;
+  margin-left: 50px;
+}
+
+.profile .name {
+  margin-top: 10px;
+  color: var(--text-white);
+  font-size: 13px;
+  transition: 0.5s ease;
+  
+}
+
+.profile:hover .name {
+  color: orangered;
+  
+}
+.profile .text {
+  color: var(--text-light);
+  font-weight: 500;
+  transition: 0.5s ease;
+  
+
+}
+
+.profile:hover .text {
+  color: var(--text-white);
+}
+.profile .details {
+  display: grid;
+}
+.profile .account_box {
+  position: absolute;
+  top: 90px;
+  right: -20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s linear;
+  background-color: var(--bg-white);
+  border-radius: 5px;
+  width: 200px;
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 0.301) 2px 5px 10px 0px;
+  padding: 10px;
+  z-index: 999;
+}
+.profile:hover .account_box {
+  opacity: 9;
+  visibility: visible;
+  top: 70px;
+  right: 90px;
+  background-color: rgb(231, 228, 229);
+  color: black;
+}
+.account_box .list {
+  color: var(--text-dark-light);
+  font-size: 16px;
+  padding: 5px 5px;
+  transition: 0.5s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "Roboto", sans-serif;
+}
+
+.profile .account_box .list:hover {
+  color: orangered;
+}
+.profile .account_box .orange {
+  color: orangered;
+  font-weight: 600;
+  font-size: 17px;
+}
+.profile .account_box .hr {
+  width: 100%;
+  height: 1px;
+  background-color: orangered;
+  margin: 5px 0px;
+}
+
+
+
+ 
+
+
+
+    /* media------------------- */
+@media (max-width: 1000px) {
+  .logo {
+    width: 50px;
+  }
+  nav ul li {
+    margin: 10px 15px;
+  }
+}
+
+@media (max-width: 840px) {
+  nav {
+    padding: 15px 0;
+  }
+
+  
+  nav ul {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #BCCCDC;
+    z-index: -1;
+    width: 180px;
+    padding-top: 70px;
+    transition: 0.5s;
+  }
+
+  
+  nav ul li {
+    display: flex;
+    margin: 80px 14px;
+  }
+
+  .menu-icon {
+    display: block;
+    width: 30px;
+    cursor: pointer;
+  }
+
+  .hide-mobile-menu {
+    right: -200px;
+  }
+}
+
+/* media */
+@media (max-width: 840px) {
+  nav ul.show {
+    right: 0;
+  }
+
+  nav ul.hide-mobile-menu {
+    right: -100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
