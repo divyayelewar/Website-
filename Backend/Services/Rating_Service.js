@@ -2,58 +2,58 @@ const Rating = require('../Models/Ratings');
 const User = require('../Models/User');
 
 // Service to create a review
- const createRating = async (userId, rating) => {
+ const createRating = async (userId, ratingText) => {
   const user = await User.findById(userId);
   
   if (!user) {
     throw new Error('User not found');
   }
 
-  const review = new Rating({
-    rating,
+  const rating = new Rating({
+    ratingText,
     user: userId
   });
 
-  await review.save();
-  return review;
+  await rating.save();
+  return rating;
 }
 
 // Service to update a review
-const updateRating = async(ratingId, rating) => {
-  const review = await Rating.findById(ratingId);
+const updateRating = async(ratingId, ratingText) => {
+  const rating= await Rating.findById(ratingId);
 
-  if (!review) {
-    throw new Error('Review not found');
+  if (!rating) {
+    throw new Error('Rating not found');
   }
 
-  review.rating = rating;
-  await review.save();
+  rating.ratingText= ratingText;
+  await rating.save();
 
-  return review;
+  return rating;
 }
 
 // Service to delete a review
 const deleteRating = async (ratingId) => {
-  const review = await Rating.findById(ratingId);
+  const rating = await Rating.findById(ratingId);
 
-  if (!review) {
-    throw new Error('Review not found');
+  if (!rating) {
+    throw new Error('Rating not found');
   }
 
-  await review.deleteOne();
-  return review;
+  await rating.deleteOne();
+  return rating;
 }
 
 // Service to get all reviews for a user
 const getRatingByUser = async (userId) => {
-  const reviews = await Rating.find({ user: userId })
+  const ratings = await Rating.find({ user: userId })
     .populate('user', 'username email'); 
 
-  if (reviews.length === 0) {
+  if (ratings.length === 0) {
     throw new Error('No reviews found for this user');
   }
 
-  return reviews;
+  return ratings;
 };
 
 
@@ -63,4 +63,5 @@ const getAll = async () =>{
   return ratings;
 
 }
+
 module.exports = {createRating,updateRating,deleteRating,getRatingByUser,getAll}

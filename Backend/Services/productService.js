@@ -1,69 +1,96 @@
 const Register = require("../Models/Register");
 
-
-
-const createProduct = async (reqData) => {
-
-    const product = new Register({
-        firstName:reqData.firstName,
-        middleName:reqData.middleName,
-        lastName:reqData.lastName,
-        dob:reqData.dob,
-        gender:reqData.gender,
-        email:reqData.email,
-        phone:reqData.phone,
-        address:reqData.address,
-        aadhar:reqData.aadhar,
-        board:reqData.board,
-        schoolName:reqData.schoolName,
-        passingYear:reqData.passingYear,
-        percentage:reqData.percentage,
-        city:reqData.city
-
+// Create a new registration
+const createRegistration = async (registrationData) => {
+  try {
+    const registration = new Register({
+      firstName: registrationData.firstName,
+      middleName: registrationData.middleName,
+      lastName: registrationData.lastName,
+      dob: registrationData.dob,
+      gender: registrationData.gender,
+      email: registrationData.email,
+      phone: registrationData.phone,
+      address: registrationData.address,
+      aadhar: registrationData.aadhar,
+      board: registrationData.board,
+      schoolName: registrationData.schoolName,
+      passingYear: registrationData.passingYear,
+      percentage: registrationData.percentage,
+      city: registrationData.city
     });
 
-    return await product.save();
-}
+    const savedRegistration = await registration.save();
+    return savedRegistration;
+  } catch (error) {
+    throw new Error("Error creating registration: " + error.message);
+  }
+};
 
+// Find registration by ID
+const findRegistrationById = async (registrationId) => {
+  try {
+    const registration = await Register.findById(registrationId);
 
-
-const deleteProduct = async (productId) => {
-
-    const product = await findProductById(productId);
-
-    await Register.findByIdAndDelete(productId);
-
-    return 'Product Deleted Successfully'
-
-
-}
-
-
-const updateProduct = async (productId, reqData) => {
-
-    return await Register.findByIdAndUpdate(productId, reqData);
-
-}
-
-
-const findProductById = async (id) => {
-
-    const product = await Register.findById(id);
-
-    if (!product) {
-        throw new Error("Product Not Found", id)
+    if (!registration) {
+      throw new Error(`Registration not found for ID: ${registrationId}`);
     }
 
-    return product;
-}
+    return registration;
+  } catch (error) {
+    throw new Error("Error finding registration: " + error.message);
+  }
+};
 
+// Update registration by ID
+const updateRegistrationById = async (registrationId, updatedData) => {
+  try {
+    const updatedRegistration = await Register.findByIdAndUpdate(
+      registrationId,
+      updatedData,
+      { new: true } // Return the updated document
+    );
 
+    if (!updatedRegistration) {
+      throw new Error(`Registration not found for ID: ${registrationId}`);
+    }
 
+    return updatedRegistration;
+  } catch (error) {
+    throw new Error("Error updating registration: " + error.message);
+  }
+};
 
-const getAllProducts = async (reqQuery) => {
+// Delete registration by ID
+const deleteRegistrationById = async (registrationId) => {
+  try {
+    const registration = await findRegistrationById(registrationId);
 
-    const products = await Register.find();
-    return products
-  
-}
-module.exports = { createProduct, deleteProduct, updateProduct, getAllProducts, findProductById}
+    if (!registration) {
+      throw new Error(`Registration not found for ID: ${registrationId}`);
+    }
+
+    await Register.findByIdAndDelete(registrationId);
+    return "Registration deleted successfully.";
+  } catch (error) {
+    throw new Error("Error deleting registration: " + error.message);
+  }
+};
+
+// Get all registrations
+const getAllRegistrations = async () => {
+  try {
+    const registrations = await Register.find();
+    return registrations;
+  } catch (error) {
+    throw new Error("Error fetching registrations: " + error.message);
+  }
+};
+
+module.exports = {
+  createRegistration,
+  findRegistrationById,
+  updateRegistrationById,
+  deleteRegistrationById,
+  getAllRegistrations
+};

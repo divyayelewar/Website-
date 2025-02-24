@@ -22,12 +22,17 @@ const createUser = async (userData) => {
     }
 }
 
+
+
+
+
+
 const findUserById = async (userId) => {
     try {
         // Populate both reviews and ratings when fetching the user
         const user = await User.findById(userId)
             .populate('reviews') // Populating reviews
-            .populate('ratings'); // Populating ratings
+           
 
         if (!user) {
             throw new Error(`User Not Found with Id: ${userId}`);

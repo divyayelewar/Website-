@@ -5,11 +5,11 @@ const connectDatabase = require('./Config/db');
 
 
 // Dotenv path 
-dotenv.config({path:"../CBackend/Config/config.env"});
+dotenv.config({path:"../Backend/Config/config.env"});
 
 // Database Connection
 connectDatabase();
-const PORT = 7667 || process.env.PORT
+const PORT = 7667|| process.env.PORT
  
 
 app.listen(PORT, () =>{

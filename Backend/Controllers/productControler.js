@@ -5,14 +5,14 @@ const createProduct = async (req, res) => {
 
    try {
 
-    const product = await productService.createProduct(req.body);
+      const product = await productService.createRegistration(req.body);
 
-    return res.status(201).send(product);
-    
+      return res.status(201).send(product);
+
    } catch (error) {
 
-    return res.status(500).send({error:error.message});
-    
+      return res.status(500).send({ error: error.message });
+
    }
 
 
@@ -23,92 +23,91 @@ const createProduct = async (req, res) => {
 const deleteProduct = async (req, res) => {
 
 
-    const productId = req.params.id;
+   const productId = req.params.id;
 
-    try {
- 
-     const product = await productService.deleteProduct(productId);
- 
-     return res.status(201).send(product);
-     
-    } catch (error) {
- 
-     return res.status(500).send({error:error.message});
-     
-    }
- 
- 
- 
- }
+   try {
 
+      const product = await productService.deleteRegistrationById(productId);
 
- const updateProduct = async (req, res) => {
+      return res.status(201).send(product);
 
+   } catch (error) {
 
-    const productId = req.params.id;
+      return res.status(500).send({ error: error.message });
 
-    try {
- 
-     const product = await productService.updateProduct(productId,req.body);
- 
-     return res.status(201).send(product);
-     
-    } catch (error) {
- 
-     return res.status(500).send({error:error.message});
-     
-    }
- 
- 
- 
- }
+   }
 
 
 
- const findProductById = async (req, res) => {
+}
 
 
-    const productId = req.params.id;
-
-    try {
- 
-     const product = await productService.findProductById(productId);
- 
-     return res.status(201).send(product);
-     
-    } catch (error) {
- 
-     return res.status(500).send({error:error.message});
-     
-    }
- 
- 
- 
- }
+const updateProduct = async (req, res) => {
 
 
+   const productId = req.params.id;
 
- const getAllProducts = async (req, res) => {
+   try {
 
-    try {
- 
-     const products = await productService.getAllProducts(req.query);
- 
-     return res.status(201).send(products);
-     
-    } catch (error) {
- 
-     return res.status(500).send({error:error.message});
-     
-    }
- }
+      const product = await productService.updateRegistrationById(productId, req.body);
+
+      return res.status(201).send(product);
+
+   } catch (error) {
+
+      return res.status(500).send({ error: error.message });
+
+   }
 
 
+
+}
+
+
+
+const findProductById = async (req, res) => {
+
+
+   const productId = req.params.id;
+
+   try {
+
+      const product = await productService.findProductById(productId);
+
+      return res.status(201).send(product);
+
+   } catch (error) {
+
+      return res.status(500).send({ error: error.message });
+
+   }
+
+
+
+}
+
+
+
+const getAllProducts = async (req, res) => {
+
+   try {
+
+      const products = await productService.getAllProducts(req.query);
+
+      return res.status(201).send(products);
+
+   } catch (error) {
+
+      return res.status(500).send({ error: error.message });
+
+   }
+}
 
 
 
 
 
- module.exports = {createProduct,deleteProduct,updateProduct,getAllProducts,findProductById}
+
+module.exports = { createProduct, deleteProduct, updateProduct, getAllProducts, findProductById }
 
 

@@ -3,33 +3,35 @@ const Rating_Service = require('../Services/Rating_Service');
 // Controller to create a review
 const createRating = async (req, res) => {
   try {
-    const { userId, rating } = req.body;
+    const { userId , ratingText } = req.body;
 
     // Validate input
-    if (!userId || !rating) {
-      return res.status(400).json({ message: 'User ID and Review Text are required.' });
+    if (!userId || !ratingText) {
+      return res.status(400).json({ message: 'User ID and Rating Text are required.' });
     }
 
-    const newReview = await Rating_Service.createRating(userId, rating);
-    res.status(201).json({ message: 'Review created successfully', review: newReview });
+    const newRating = await Rating_Service.createRating(userId, ratingText);
+    res.status(201).json({ message: 'Rating created successfully', rating: newRating });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });
   }
 };
 
+
+
 // Controller to update a review
 const updateRating = async (req, res) => {
   try {
-    const { ratingId, rating } = req.body;
+    const { ratingId ,ratingText} = req.body;
 
     // Validate input
-    if (!ratingId || !rating) {
-      return res.status(400).json({ message: 'Review ID and Review Text are required.' });
+    if (!ratingId || !ratingText) {
+      return res.status(400).json({ message: 'Rating ID and Rating Text are required.' });
     }
 
-    const updatedReview = await Rating_Service.updateRating(ratingId, rating);
-    res.status(200).json({ message: 'Review updated successfully', review: updatedReview });
+    const updatedRating = await Rating_Service.updateRating(ratingId, ratingText);
+    res.status(200).json({ message: 'Rating updated successfully', rating: updatedRating });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });
@@ -43,11 +45,11 @@ const deleteRating = async (req, res) => {
 
     // Validate input
     if (!ratingId) {
-      return res.status(400).json({ message: 'Review ID is required.' });
+      return res.status(400).json({ message: 'Rating ID is required.' });
     }
 
-    const deletedReview = await Rating_Service.deleteRating(ratingId);
-    res.status(200).json({ message: 'Review deleted successfully', review: deletedReview });
+    const deletedRating = await Rating_Service.deleteRating(ratingId);
+    res.status(200).json({ message: 'Review deleted successfully', rating: deletedRating });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });
@@ -64,22 +66,23 @@ const getRatingByUser = async (req, res) => {
       return res.status(400).json({ message: 'User ID is required.' });
     }
 
-    const reviews = await Rating_Service.getRatingByUser(userId);
-    res.status(200).json({ reviews });
+    const ratings = await Rating_Service.getRatingByUser(userId);
+    res.status(200).json({ ratings });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });
   }
 };
 
+
 const getAll = async (req, res) => {
   try {
-       const ratings = await Rating_Service.getAll();
-       return res.status(2001).send(ratings, "Succes")
+    const ratings = await Rating_Service.getAll();
+    return res.status(200).send({ message: "Success", ratings }); // Corrected status and response
   } catch (error) {
-     return res.status(400).send(error,"Faild")
+    return res.status(400).send({ message: "Failed", error: error.message }); // Corrected error handling
   }
-}
+};
 
 module.exports = {
    createRating,updateRating,deleteRating,getRatingByUser,getAll

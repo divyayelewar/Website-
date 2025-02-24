@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const ratingSchema = new mongoose.Schema({
-  rating: {
+  ratingText: {
     type: Number,
     required: true,
     min: 1,
