@@ -1,58 +1,129 @@
- .main_message h1{
-     display: flex;
-     align-items: center;
-     justify-content: center;
-}
-.main_msg {
-  width: 100%;
-  height: auto;
+/* General Styles */
+.main_message h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  font-size: 2rem; /* Adjust the title size */
+  margin-bottom: 20px;
+}
+
+.main_msg {
+  width: 100%;
+  min-height: 500px; /* Makes the container responsive */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Spaces the image and text apart */
+  gap: 30px;
+  margin-top: 20px; /* Reduced the top margin */
   position: relative;
 }
 
 .main_msg .left {
-  width: 40%;
-  height: 500px;
+  width: 45%; /* Adjust width of left section */
+  height: auto;
   box-sizing: border-box;
   color: white;
-  font-size: 18px;
+  font-size: 1rem;
   position: relative;
 }
 
-.left img{
-  width: 500px;
-  height: 400px;
-  position: absolute;
-  object-fit: cover;
+.left img {
+  width: 100%; /* Ensures image fills the container's width */
+  max-width: 500px; /* Limits the width to a smaller size */
+  height: auto; /* Maintains the image aspect ratio */
+  position: relative;
+  object-fit: cover; /* Ensures the image covers the container */
+  object-position: center; /* Ensures the important part (like the face) stays visible */
+  border-radius: 10px; /* Optional: Adds rounded corners to the image */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow effect to the image */
+  margin-left: 200px;
+}
+
+.main_msg .right {
+  width: 50%; /* Ensures the text section takes more space */
+  height: 500px;
+  background-color: #10051f;
+  padding: 20px; /* Adds padding inside the text box */
+  color: white;
+  margin-right: 50px;
+}
+
+.right p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-top: 20px;
   padding-left: 20px;
-  
-  margin: 70px 80px;
-  
+  padding-right: 20px;
+  width: 100%;
 }
 
-.main_msg .right{
-width: 60%;
-height: 500px;
-background-color: #10051f;
-margin-right: 40px;
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .main_msg {
+    flex-direction: row; /* Keeps layout as row for medium screens */
+  }
+  .main_msg .left, .main_msg .right {
+    width: 45%; /* Adjusts both sections to fit */
+  }
 
-
+  .left img {
+    max-width: 450px; /* Slightly smaller image */
+  }
 }
 
+@media (max-width: 992px) {
+  .main_msg {
+    flex-direction: column; /* Stack the sections vertically on smaller screens */
+  }
 
-.right p{
-padding-right: 20px;
-color: white;
-line-height: 1.8;
+  .main_msg .left, .main_msg .right {
+    width: 100%; /* Make both sections full width */
+    height: auto;
+  }
 
-font-size: 1rem;
-margin-top: 40px;
-padding-left: 60px;
-margin-left: 20px;
-width: 700px;
+  .left img {
+    max-width: 80%; /* Scale down the image to fit better on small screens */
+    margin-left: 0; /* Remove left margin */
+  }
 
-} 
+  .main_msg .right {
+    margin-right: 0; /* Remove right margin */
+  }
+}
 
+@media (max-width: 768px) {
+  .main_message h1 {
+    font-size: 1.8rem; /* Make title smaller on mobile */
+  }
+
+  .right p {
+    font-size: 0.9rem; /* Smaller text size for mobile */
+  }
+
+  .left img {
+    max-width: 70%; /* Further reduce image size */
+  }
+}
+
+@media (max-width: 480px) {
+  .main_message h1 {
+    font-size: 1.5rem; /* Adjust title size for very small screens */
+  }
+
+  .right p {
+    font-size: 0.8rem; /* Adjust font size for very small screens */
+  }
+
+  .left img {
+    max-width: 60%; /* Make the image smaller for tiny screens */
+  }
+
+  .main_msg {
+    margin-top: 10px; /* Reduce top margin */
+  }
+
+  .main_msg .left, .main_msg .right {
+    width: 100%; /* Ensure full width for both sections */
+    margin: 0; /* Remove margins */
+  }
+}

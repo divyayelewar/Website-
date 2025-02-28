@@ -6,13 +6,18 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cors());
 
-//user_routes
-const Auth_Routes = require('./Routes/authRoutes');
-app.use('/api/auth',Auth_Routes)
+//auth_routes
+const authRoutes = require('./Routes/authRoutes');
+app.use('/api/auth',authRoutes)
+
+// User Routes
+ const userRoute = require('./Routes/userRoutes');
+ app.use('/api/users',userRoute);
+
 
 //courses
-const productRoutes=require('./Routes/productRoutes')
-app.use('/api/course',productRoutes)
+const RegisterRouth=require('./Routes/registerRoutes')
+app.use('/api/course',RegisterRouth)
 
 //courese_review
 const review_Routes = require('./Routes/Review_Routes')

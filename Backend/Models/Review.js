@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 
 // Review Schema
 const reviewSchema = new mongoose.Schema({
+  
+  // name: {
+  //   type: String,
+  //   required: true,
+  //   trim: true
+  // },
   reviewText: {
     type: String,
     required: true,

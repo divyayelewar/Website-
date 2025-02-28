@@ -56,7 +56,17 @@ const Result = () => {
   return (
     <>
    <div className="wallpaper-container">
-    </div> 
+   <div className="text">
+           <h1></h1>
+           <div className="button">
+            <div className="Home">Home</div>
+            <div className="line"></div>
+            <div className="Aboutus">Result</div>
+           </div>
+           
+        </div>
+        </div>
+  
    <div className="heading">
    <h1> College Topper List</h1>
    </div>

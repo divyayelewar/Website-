@@ -14,14 +14,13 @@ import NonTeachingStaff from './Pages/Staff/NonTeachingStaff';
 import Registration from './Pages/Registration/Registration';
 import Contact from './Pages/Contact/Contact';
 import Facilities from './Pages/About/Facilities';
-import Syllabuss from './Pages/About/Syllabuss';
+// import Syllabuss from './Pages/About/Syllabuss';
 import Free_coures from './Pages/Free_coures/Free_coures';
 import Paper from './Pages/About/Paper';
 import Result from './Pages/Result/Result';
 import Image from './Pages/Single_image/Image';
-import Javacode from './Pages/Coures_detail/Javacode';
+import Javacode from './Pages/Free_coures/Javacode';
 import Teacher_detail from './Pages/Staff/Teacher_detail';
-import Login from './Pages/Login/Login';
 
 const App = () => {
   
@@ -45,13 +44,12 @@ const App = () => {
            <Route path='/contact' element={<Contact/>}/>
            <Route path='/about' element={<About/>}/>
            <Route path='/freecoures' element={<Free_coures/>}/>
-           <Route path='/syllabus' element={<Syllabuss />} />
-           <Route path='/paper_pdf' element={<Paper/>}/>
+           {/* <Route path='/syllabus' element={<Syllabuss />} /> */}
+           <Route path='/paper' element={<Paper/>}/>
            <Route path='/facility' element={<Facilities/>}/>
            <Route path='/result' element={<Result/>}/>
-           <Route path='/javacode' element={<Javacode/>}/>
+           <Route path='/javacode/:id' element={<Javacode/>}/>
            <Route path='/teacher/:id' element={<Teacher_detail/>}/>
-           <Route path='/login' element={<Login/>}/>
            
            {/* <Route path='/image' element={<Image/>}/> */}
          

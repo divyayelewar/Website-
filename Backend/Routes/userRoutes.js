@@ -5,10 +5,11 @@ const router = express.Router();
 
 
 const userController = require ('../Controllers/userControler');
+const authenticate = require('../Middleware/authenticate');
 
 
 
-router.get('/profile', userController.getUserProfile);
+router.get('/profile',authenticate,userController.getUserProfile);
 router.get('/all-users', userController.getAllUser);
 
 

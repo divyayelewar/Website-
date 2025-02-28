@@ -5,6 +5,7 @@ import class4 from '../../assets/class4.jpg'
 import class3 from '../../assets/class3.jpg'
 import other2 from '../../assets/other2.jpg'
 import other3 from '../../assets/other3.jpg'
+import Picture from '../../assets/picture.jpg'
 
 const Others = () => {
   return (
@@ -32,6 +33,10 @@ const Others = () => {
             <div className="child">
                 <img src={other2} alt="" />
             </div>
+            <div className="child">
+                <img src={Picture} alt="" />
+            </div>
+           
             <div className="child">
                 <img src={class4} alt="" />
             </div>

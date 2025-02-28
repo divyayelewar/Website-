@@ -1,7 +1,7 @@
 .wall_paper{
     width: 100%;
-    min-height: 70vh;
-    background:linear-gradient(rgba(8, 0, 58, 0.653), rgba(8, 0, 58, 0.598)), url('../../assets/pdf2.jpg');
+    min-height: 60vh;
+    background:linear-gradient(rgba(8, 0, 58, 0.393), rgba(8, 0, 58, 0.146)), url('../../assets/back.jpg');
     background-size: cover;
     
      display: flex;
@@ -9,16 +9,37 @@
     justify-content: center;
     position: relative;
 }
+.syll_paper{
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    gap: 200px;
+}
+.paper{
+    width: 500px;
+    height: 500px;
+    background-color: rgb(205, 181, 226);
+  
+}
+.paper h3{
+   margin-top: 40px;
+   margin-left: 40px;
+}
 .pdf a{
+    margin-top: 90px;
     gap: 50px;
     border-radius: 2px solid black;
 }
 
 .b_t{
-display: flex;
-align-items: center;
+/* display: flex;
+align-items: center; */
 justify-content: center;
-margin-top: 20px;
+margin-top: 80px;
+margin-left: 90px;
+gap: 50px;
 }
 button{
     border-radius: 10px;
@@ -32,4 +53,14 @@ button{
     border: none;
     outline: none;
     margin-bottom: 30px;
+}
+
+.Syllabuss{
+    width: 500px;
+    height: 500px;
+    background-color: rgb(205, 181, 226);
+}
+.Syllabuss h3{
+    margin-top: 40px;
+   margin-left: 40px;
 }

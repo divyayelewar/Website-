@@ -1,7 +1,8 @@
+import jadhavmam from '../../assets/jadhavmam.jpg'
 export const staff = [
     {
       id: 1,
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWwp02qKYi6BdQdeiFwbXRKHmgiOcR4Hq7tA&s",
+      img: "https://st3.depositphotos.com/16122460/18966/i/450/depositphotos_189668580-stock-photo-young-male-teacher-with-book.jpg",
       Name: "Kale I.S",
       Education: "b.ed & d.ed",
       Role: "Principal",
@@ -168,7 +169,7 @@ export const staff = [
     },
     {
       id: 7,
-      img: "https://st3.depositphotos.com/16122460/18966/i/450/depositphotos_189668580-stock-photo-young-male-teacher-with-book.jpg",
+      img: "https://static.vecteezy.com/system/resources/previews/027/819/629/non_2x/young-teacher-in-school-free-photo.jpg",
       Name: "Agraval mam",
       Education: "b.ed & d.ed",
       Role: "Teacher",
@@ -196,7 +197,7 @@ export const staff = [
     },
     {
       id: 8,
-      img: "https://st3.depositphotos.com/16122460/18966/i/450/depositphotos_189668580-stock-photo-young-male-teacher-with-book.jpg",
+      img: "https://static.vecteezy.com/system/resources/previews/027/819/629/non_2x/young-teacher-in-school-free-photo.jpg",
       Name: "Tak mam",
       Education: "b.ed & d.ed",
       Role: "Teacher",

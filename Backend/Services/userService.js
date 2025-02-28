@@ -9,7 +9,7 @@ const createUser = async (userData) => {
         const isUserExist = await User.findOne({ email });
 
         if (isUserExist) {
-            throw new Error('User Already Exist With:', email);
+            throw new Error('User Already Exists With: ' + email);
         }
 
         password = await bcrypt.hash(password, 10);
@@ -20,19 +20,14 @@ const createUser = async (userData) => {
     } catch (error) {
         throw new Error(error.message);
     }
-}
-
-
-
-
-
+};
 
 const findUserById = async (userId) => {
     try {
-        // Populate both reviews and ratings when fetching the user
         const user = await User.findById(userId)
-            .populate('reviews') // Populating reviews
-           
+            .populate('details')  // ✅ Populating details
+            .populate('reviews')  
+            .populate('ratings');
 
         if (!user) {
             throw new Error(`User Not Found with Id: ${userId}`);
@@ -41,21 +36,22 @@ const findUserById = async (userId) => {
     } catch (error) {
         throw new Error(error.message);
     }
-}
+};
+
 
 const findUserByEmail = async (email) => {
     try {
         const user = await User.findOne({ email });
 
         if (!user) {
-            throw new Error('User Not Found Email', email);
+            throw new Error('User Not Found With Email: ' + email);
         }
 
         return user;
     } catch (error) {
         throw new Error(error.message);
     }
-}
+};
 
 const getUserProfileByToken = async (token) => {
     try {
@@ -64,13 +60,13 @@ const getUserProfileByToken = async (token) => {
         const user = await findUserById(userId);
 
         if (!user) {
-            console.error('User Not Found'); // Log user not found
+            console.error('User Not Found');
             throw new Error('User Not Found');
         }
 
         return user;
     } catch (error) {
-        console.error('Error fetching user profile:', error.message); // Log any errors
+        console.error('Error fetching user profile:', error.message);
         throw new Error('Invalid Token or User Not Found');
     }
 };
@@ -78,12 +74,14 @@ const getUserProfileByToken = async (token) => {
 const getAllUsers = async () => {
     try {
         const users = await User.find()
-            .populate('reviews')  // Populate reviews
-            .populate('ratings'); // Populate ratings
+            .populate('details')  // ✅ Populating details
+            .populate('reviews')  
+            .populate('ratings');
         return users;
     } catch (error) {
         throw new Error(error.message);
     }
-}
+};
+
 
 module.exports = { createUser, findUserById, findUserByEmail, getUserProfileByToken, getAllUsers };

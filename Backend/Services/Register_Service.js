@@ -1,7 +1,7 @@
 const Register = require("../Models/Register");
-
+const User = require('../Models/User')
 // Create a new registration
-const createRegistration = async (registrationData) => {
+const createRegistration = async (registrationData, userId) => {
   try {
     const registration = new Register({
       firstName: registrationData.firstName,
@@ -21,11 +21,24 @@ const createRegistration = async (registrationData) => {
     });
 
     const savedRegistration = await registration.save();
+
+    // Step 2: Link registration to user
+    const user = await User.findById(userId);
+    if (!user) {
+      throw new Error(`User not found with ID: ${userId}`);
+    }
+
+    // ✅ Push registration ID to details
+    user.details.push(savedRegistration._id);
+    await user.save();
+
     return savedRegistration;
   } catch (error) {
     throw new Error("Error creating registration: " + error.message);
   }
 };
+
+
 
 // Find registration by ID
 const findRegistrationById = async (registrationId) => {

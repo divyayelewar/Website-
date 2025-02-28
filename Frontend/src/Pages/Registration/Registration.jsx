@@ -1,192 +1,292 @@
-import React, { useState } from "react";
-import './Registration.css'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import './Registration.css';
 
-function Admission_Form() {
+ const Registration = () =>{
+  // Initial form data state
   const [formData, setFormData] = useState({
     firstName: "",
     middleName: "",
     lastName: "",
     dob: "",
-    gender: "",
+    gender: "Male",
     email: "",
     phone: "",
     address: "",
     aadhar: "",
-    board: "",
+    board: "CBSE",
     schoolName: "",
     passingYear: "",
     percentage: "",
-    city: ""
+    city: "",
+    userId: "", // Add userId to the formData
   });
 
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState(null); // For showing success or error message
+
+  useEffect(() => {
+    // Fetch user profile data to get the userId
+    const fetchUserProfile = async () => {
+      try {
+        const response = await axios.get('http://localhost:7667/api/users/profile', { withCredentials: true });
+        
+        if (response.status === 200 && response.data) {
+          // Assuming the response contains user details with _id or userId
+          setFormData((prevData) => ({
+            ...prevData,
+            userId: response.data._id, // Add userId to form data
+          }));
+        }
+      } catch (error) {
+        console.error('Error fetching user profile:', error);
+        setMessage({ type: "error", text: "Failed to fetch user profile." });
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
+
+  // Handle form data change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the page from refreshing
-    console.log("Form Data Submitted: ", formData);
-    alert("Registration Successful!");
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Check if all required fields are filled
+    if (
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.dob ||
+      !formData.phone ||
+      !formData.email ||
+      !formData.address ||
+      !formData.aadhar ||
+      !formData.schoolName ||
+      !formData.passingYear ||
+      !formData.percentage ||
+      !formData.city ||
+      !formData.userId // Ensure userId is present
+    ) {
+      setMessage({ type: "error", text: "Please fill out all required fields!" });
+      return;
+    }
+
+    setLoading(true);
+    try {
+      // POST request to the backend API with userId included
+      const response = await axios.post(
+        'http://localhost:7667/api/course/registration/create/',
+        formData
+      );
+      setLoading(false);
+
+      if (response.status === 200) {
+        setMessage({ type: "success", text: "Registration Successful!" });
+        setFormData({}); // Reset form data after successful submission
+      }
+    } catch (error) {
+      setLoading(false);
+      setMessage({ type: "error", text: "Error occurred. Please try again." });
+    }
   };
 
   return (
     <>
-    <div className="register_container">
-    <div className="button">
-            <div className="Home">Home</div>
-            <div className="line"></div>
-            <div className="Aboutus">Registration</div>
-           </div>
-           
+      <div className="register_container">
+        <div className="button">
+          <div className="Home">Home</div>
+          <div className="line"></div>
+          <div className="Aboutus">Registration</div>
         </div>
-         <div className="text">
-           
-          
-       
-    </div>
-    <div className="form_section">
-      <form onSubmit={handleSubmit}>
-        <h2>Registration Form 2024-2025</h2>
+      </div>
 
-        <div className="form_group">
-          <div className="input_box">
-            <div className="name">First Name</div>
-            <input type="text" name="firstName" placeholder="Enter Your First Name" value={formData.firstName} onChange={handleChange}/>
-          </div>
-          <div className="input_box">
-            <div className="name">Middle Name</div>
-            <input type="text" name="middleName" placeholder="Enter Your Middle Name" value={formData.middleName} onChange={handleChange}/>
-          </div>
-          <div className="input_box">
-            <div className="name">Last Name</div>
-            <input type="text" name="lastName" placeholder="Enter Your Last Name" value={formData.lastName} onChange={handleChange} />
-          </div>
-        </div>
+      <div className="form_section">
+        <form onSubmit={handleSubmit}>
+          <h2>Registration Form 2024-2025</h2>
 
-        <div className="form_group">
-          <div className="input_box">
-            <div className="name">DOB</div>
-            <input type="date" name="dob" value={formData.dob} onChange={handleChange} />
-          </div>
-          <div className="input_box">
-            <div className="name">Gender</div>
-            <select name="gender" value={formData.gender} onChange={handleChange} >
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-        </div>
+          {message && (
+            <div className={`message ${message.type}`}>
+              {message.text}
+            </div>
+          )}
 
-        <div className="form_group">
-          <div className="input_box">
-            <div className="name">Mobile Number</div>
-            <input type="tel" name="phone"  placeholder="Enter your mobile no."   value={formData.phone}  onChange={handleChange}/>
+          {/* First Name, Middle Name, Last Name */}
+          <div className="form_group">
+            <div className="input_box">
+              <div className="name">First Name</div>
+              <input
+                type="text"
+                name="firstName"
+                placeholder="Enter Your First Name"
+                value={formData.firstName}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="input_box">
+              <div className="name">Middle Name</div>
+              <input
+                type="text"
+                name="middleName"
+                placeholder="Enter Your Middle Name"
+                value={formData.middleName}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="input_box">
+              <div className="name">Last Name</div>
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Enter Your Last Name"
+                value={formData.lastName}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-          <div className="input_box">
-            <div className="name">Aadhar Number</div>
-            <input type="number" name="aadhar" placeholder="Enter your Aadhar no." value={formData.aadhar} onChange={handleChange} />
+
+          {/* DOB, Gender */}
+          <div className="form_group">
+            <div className="input_box">
+              <div className="name">DOB</div>
+              <input
+                type="date"
+                name="dob"
+                value={formData.dob}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="input_box">
+              <div className="name">Gender</div>
+              <select name="gender" value={formData.gender} onChange={handleChange}>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
           </div>
-        </div>
 
-        <div className="form_group">
-          <div className="input_box">
-            <div className="name">School Name</div>
-            <input  type="text" name="schoolName" placeholder="Enter your school name" value={formData.schoolName} onChange={handleChange} />
+          {/* Email, Phone */}
+          <div className="form_group">
+            <div className="input_box">
+              <div className="name">Email</div>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter Your Email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="input_box">
+              <div className="name">Phone</div>
+              <input
+                type="text"
+                name="phone"
+                placeholder="Enter Your Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-          <div className="input_box">
-            <div className="name">12th Board</div>
-            <select name="board" value={formData.board} onChange={handleChange} >
-               <option value="Amravati">Amravati</option>
-         <option value="Aurangabad">Aurangabad</option>
-         <option value="Ahmednagar">Kokan</option>
-      
-         <option value="Buldhana">Nashik</option>
-         <option value="Beed">Nagpur</option>
-         <option value="Bhandara">Pune</option>
 
-            </select>
+          {/* Address, Aadhar */}
+          <div className="form_group">
+            <div className="input_box">
+              <div className="name">Address</div>
+              <input
+                type="text"
+                name="address"
+                placeholder="Enter Your Address"
+                value={formData.address}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="input_box">
+              <div className="name">Aadhar</div>
+              <input
+                type="text"
+                name="aadhar"
+                placeholder="Enter Your Aadhar Number"
+                value={formData.aadhar}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="form_group">
-          <div className="input_box">
-            <div className="name">12th Percentage</div>
-            <input type="number" name="percentage" placeholder="Enter your percentage" value={formData.percentage} onChange={handleChange} />
+          {/* Board, School Name */}
+          <div className="form_group">
+            <div className="input_box">
+              <div className="name">Board</div>
+              <select name="board" value={formData.board} onChange={handleChange}>
+                <option value="CBSE">CBSE</option>
+                <option value="ICSE">ICSE</option>
+                <option value="State">State</option>
+              </select>
+            </div>
+            <div className="input_box">
+              <div className="name">School Name</div>
+              <input
+                type="text"
+                name="schoolName"
+                placeholder="Enter Your School Name"
+                value={formData.schoolName}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-          <div className="input_box">
-            <div className="name">Passing Year</div>
-            <input  type="date" name="passingYear" value={formData.passingYear} onChange={handleChange}  />
+
+          {/* Passing Year, Percentage */}
+          <div className="form_group">
+            <div className="input_box">
+              <div className="name">Passing Year</div>
+              <input
+                type="text"
+                name="passingYear"
+                placeholder="Enter Your Passing Year"
+                value={formData.passingYear}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="input_box">
+              <div className="name">Percentage</div>
+              <input
+                type="text"
+                name="percentage"
+                placeholder="Enter Your Percentage"
+                value={formData.percentage}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="form_group">
-          <div className="input_box">
-            <div className="name">City</div>
-            <select name="city" value={formData.city} onChange={handleChange}
-            >
-               <option value="Akola">Akola</option>
-       <option value="Amravati">Amravati</option>
-       <option value="Aurangabad">Aurangabad</option>
-       <option value="Ahmednagar">Ahmednagar</option>
-     
-       <option value="Buldhana">Buldhana</option>
-       <option value="Beed">Beed</option>
-       <option value="Bhandara">Bhandara</option>
-       <option value="Chandrapur">Chandrapur</option>
-       <option value="Dhule">Dhule</option>
-       <option value="Gadchiroli">Gadchiroli</option>
-       <option value="Gondia">Gondia</option>
-       <option value="Hingoli">Hingoli</option>
-       <option value="Jalna">Jalna</option>
-       <option value="Jalgaon">Jalgaon</option>
-       <option value="Kolhapur">Kolhapur</option>
-       <option value="Latur">Latur</option>
-       <option value="Mumbai Suburban">Mumbai Suburban</option>
-       <option value="Mumbai city">Mumbai city</option>
-       <option value="Nanded">Nanded</option>
-       <option value="Nagpur">Nagpur</option>
-       <option value="Nandurbar">Nandurbar</option>
-       <option value="Nashik">Nashik</option>
-       <option value="Osmanabad">Osmanabad</option>
-       <option value="Pune">Pune</option>
-       <option value="Parbhani">Parbhani</option>
-       <option value="Palghar">Palghar</option>
-       <option value="Raigad">Raigad</option>
-       <option value="Ratnagiri">Ratnagiri</option>
-       <option value="Sangli">Sangli</option>
-       <option value="Satara">Satara</option>
-       <option value="Solapur">Solapur</option>
-       <option value="Sindhudurg">Sindhudurg</option>
-       <option value="Thane">Thane</option>
-       <option value="Wardha">Wardha</option>
-       <option value="Yevatmal">Yevatmal</option>
-
-
-
-            </select>
+          {/* City */}
+          <div className="form_group">
+            <div className="input_box">
+              <div className="name">City</div>
+              <input
+                type="text"
+                name="city"
+                placeholder="Enter Your City"
+                value={formData.city}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-          <div className="input_box">
-            <div className="name">Email</div>
-            <input type="email"  name="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} />
+
+          {/* Submit Button */}
+          <div className="button">
+            <button type="submit" disabled={loading}>
+              {loading ? "Submitting..." : "Submit"}
+            </button>
           </div>
-        </div>
-
-        <div className="form_group">
-          <div className="input_box">
-            <div className="name">Address</div>
-            <textarea name="address" value={formData.address} onChange={handleChange}></textarea>
-          </div>
-        </div>
-
-        <div className="btton">
-          <button type="submit">Submit</button>
-        </div>
-
-      </form>
-    </div>
+        </form>
+      </div>
     </>
   );
 }
 
-export default Admission_Form;
+export default Registration;

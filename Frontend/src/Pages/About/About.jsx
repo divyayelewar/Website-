@@ -6,9 +6,10 @@ import about3 from '../../assets/about3.jpg'
 const About = () => {
   return (
     <div>
+     
       <div className="cintainer_box">
          <div className="text">
-           <h1> ABOUT US</h1>
+           <h1></h1>
            <div className="button">
             <div className="Home">Home</div>
             <div className="line"></div>

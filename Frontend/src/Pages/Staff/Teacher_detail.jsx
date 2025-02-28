@@ -17,6 +17,18 @@ const Teacher_detail = () => {
     const teacher = staff.find(staff => staff.id === parseInt(id));
      
       return (
+        <>
+        <div className="wallpaper">
+      <div className="text">
+           <h1></h1>
+           <div className="button">
+            <div className="Home">Home</div>
+            <div className="line"></div>
+            <div className="Aboutus">Teachers Details</div>
+           </div>
+           </div>
+           
+        </div>
         <div className="Teachers_Details">
         <div className="left_poster">
           <img src={teacher.img} alt="" />
@@ -52,8 +64,8 @@ const Teacher_detail = () => {
           </div>
         </div>
     
-    
+    </>
       );
     };
 
-export default Teacher_detail
+export default Teacher_detail;

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { set } = require('../app');
 
 // Define the registration schema
 const registrationSchema = new mongoose.Schema({
@@ -22,7 +23,10 @@ const registrationSchema = new mongoose.Schema({
   gender: {
     type: String,
     required: [true, "Gender is required"],
-    enum: ["Male", "Female", "Other"]
+    enum: ["Male", "Female", "Other"],
+    set:function(value){
+      return value.charAt(0).toUpperCase()+value.slice(1).toLowerCase();
+    }
   },
   email: {
     type: String,

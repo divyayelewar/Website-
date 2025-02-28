@@ -31,12 +31,13 @@ const userSchema = new mongoose.Schema({
   },
   ratings: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: "ratings"
+    ref: "Rating"  // Fixed ref
   }],
   reviews: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: "reviews"
+    ref: "Review"  // Fixed ref
   }]
+
 });
 
 const User = mongoose.model("users", userSchema);

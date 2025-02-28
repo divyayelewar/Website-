@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 const Courses = () => {
   const  navigate = useNavigate();
   const handleExplore = () =>{
-    navigate('/syllabus')
+    navigate('/paper')
   }
   return (
     <>

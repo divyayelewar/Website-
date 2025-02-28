@@ -17,11 +17,18 @@ const Freshar = () => {
            </div>
            <div className="heading">
             <h1>Freshar's Photoes</h1>
+            
           </div>
           <div className="parent">
             <div className="child">
               <img src={dance2 } alt="" />
+            
             </div>
+              
+            <div className="child">
+              <img src={ancoring} alt="" />
+            </div>
+            
     
             <div className="child">
               <img src={pic1} alt="" />
@@ -30,10 +37,6 @@ const Freshar = () => {
               <img src={freshar} alt="" />
             </div>
 
-            <div className="child">
-              <img src={ancoring} alt="" />
-            </div>
-            
             
             {/* <div className="child">
               <img src={png4} alt="" />
